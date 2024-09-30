@@ -1,29 +1,38 @@
-import java.util.List;
-import java.util.ArrayList;
 
-
-public class Task4Main {
-    public static void main(String[] args) {
-        List<Integer> perfectNumbersList = new ArrayList<>();
-        for (Integer i = 1; i < 10000; i++) {
-            List<Integer> factors = getAllFactorsForNumber(i);
-            if (i == factors.stream().mapToInt(Integer::intValue).sum()) {
-                perfectNumbersList.add(i);
+    import java.util.Arrays;
+    import java.util.Scanner;
+    
+    public class Task4Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter length of array: ");
+    
+            if (sc.hasNextInt()) {
+                int usersArrayLength = sc.nextInt();
+                sc.nextLine();
+                if (usersArrayLength > 0) {
+                    int[] usersArray = new int[usersArrayLength];
+                    for (int i = 0; i < usersArrayLength; i++) {
+                        System.out.println("Enter array element: ");
+                        if (sc.hasNextInt()) {
+                            usersArray[i] = sc.nextInt();
+                            sc.nextLine();
+                        } else {
+                            sc.nextLine();
+                            i--;
+                            System.out.println("Wrong input ");
+                        }
+    
+                    }
+                    int usersAverageArithmetic = Arrays.stream(usersArray).sum() / usersArrayLength;
+    
+                    System.out.println("Average arithmetic number of your Array: " + usersAverageArithmetic);
+                } else {
+                    System.out.println("Invalid Input");
+                }
+            } else {
+                System.out.println("Invalid Input");
             }
+            sc.close();
         }
-        perfectNumbersList.forEach(System.out::println);
     }
-
-    private static List<Integer> getAllFactorsForNumber(int number) {
-        List<Integer> factors = new ArrayList<>();
-        for (int i = 1; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                factors.add(i);
-
-                if (number / i < number)  factors.add(number / i);
-            }
-        }
-
-        return factors;
-    }
-}
