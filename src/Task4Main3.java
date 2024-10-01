@@ -31,7 +31,7 @@ public class Task4Main3 {
                                     userInput.nextLine();
                                     if (secondCol > 0) {
 
-                                        if (firstCol != secondRow) {                           //Перевиряємо чи виконується умова для множення матриць
+                                        if (firstRow != secondCol) {                           //Перевиряємо чи виконується умова для множення матриць
                                             System.out.println("Multiplication impossible with this rows and columns");
                                         } else {
                                             Random random = new Random();                        //Створюємо генератор рандомних значень
@@ -53,15 +53,18 @@ public class Task4Main3 {
                                                     int endRangeFirstMatrix = userInput.nextInt();
                                                     userInput.nextLine();
 
-
+                                                    System.out.println("Your first matrix");
                                                     for (int i = 0; i < firstRow; i++) { //Створюємо 2 цикли, щоб в кожну колонку двовимірного масива задати значення
                                                         for (int j = 0; j < firstCol; j++) {
 
                                                             firstMatrix[i][j] = random.nextInt(endRangeFirstMatrix) + startRangeFirstMatrix;
 
+                                                            System.out.print(firstMatrix[i][j] + " ");
                                                         }
+                                                        System.out.println();
 
                                                     }
+
 
                                                 } else {
                                                     System.out.println("Wrong Input");
@@ -83,13 +86,19 @@ public class Task4Main3 {
                                                 if (userInput.hasNextInt()) {
                                                     int endRangeSecondMatrix = userInput.nextInt();
                                                     userInput.nextLine();
+
+                                                    System.out.println("Your second matrix");
                                                     for (int i = 0; i < secondRow; i++) {
                                                         for (int j = 0; j < secondCol; j++) {
 
                                                             secondMatrix[i][j] = random.nextInt(endRangeSecondMatrix) + startRangeSecondMatrix;
 
+                                                            System.out.print(secondMatrix[i][j] + " ");
                                                         }
+                                                        System.out.println();
+
                                                     }
+
 
                                                     System.out.println("Your result: ");
                                                     //Створюємо на цей раз 3 массиви, щоб помножити один масив на другий
@@ -138,6 +147,5 @@ public class Task4Main3 {
         } else {
             System.out.println("Wrong input");
         }
-        userInput.close();
     }
 }
