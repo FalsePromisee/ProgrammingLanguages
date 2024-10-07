@@ -29,3 +29,4 @@ public class Task5Main3 {
 
         sc.close();
     }
+}
