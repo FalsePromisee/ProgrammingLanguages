@@ -1,4 +1,5 @@
-package ClassWork;
+package Task_8;
+
 public class MyList <T> {
 
     private Node<T> head;
