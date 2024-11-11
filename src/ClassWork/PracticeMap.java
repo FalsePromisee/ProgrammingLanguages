@@ -1,6 +1,6 @@
 package ClassWork;
 import java.util.Map;
-import java.util.HashMap;;
+import java.util.HashMap;
 public class PracticeMap {public static void main(String[] args) {
     
     String someText = "I don't have any problems I";
